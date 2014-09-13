@@ -59,6 +59,22 @@
     // This point represents where the position of the user's finger is relative to where the pan began.
     CGPoint panPoint = [recognizer translationInView:self.swipeContentView];
     NSLog(@"Pan position relative to it's start point: %@", NSStringFromCGPoint(panPoint));
+    
+    //
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            NSLog(@"Pan Gesture began.");
+            break;
+        case UIGestureRecognizerStateChanged:
+            NSLog(@"Pan Gesture changed.");
+            break;
+        case UIGestureRecognizerStateEnded:
+            NSLog(@"Pan gesture ended.");
+            break;
+        default:
+            NSLog(@"Pan gesture unknown behaviour");
+            break;
+    }
 }
 
 @end
