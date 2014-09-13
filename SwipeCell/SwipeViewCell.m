@@ -52,9 +52,13 @@
     // Configure the view for the selected state
 }
 
+// This method is the handler for the pan gesture we added to the swipeContentView.
+// It takes, as a parameter, the instance of the pan gesture recognizer.
 - (void)panThisCell:(UIPanGestureRecognizer *)recognizer
 {
-    NSLog(@"Panning!");
+    // This point represents where the position of the user's finger is relative to where the pan began.
+    CGPoint panPoint = [recognizer translationInView:self.swipeContentView];
+    NSLog(@"Pan position relative to it's start point: %@", NSStringFromCGPoint(panPoint));
 }
 
 @end
