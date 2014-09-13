@@ -10,4 +10,6 @@
 
 @interface SwipeViewCell : UITableViewCell
 
+@property (nonatomic, strong) UIView *swipeContentView;
+
 @end

@@ -64,8 +64,13 @@
     // If the cell doesn't exist then initialize one with the correct identifier.
     if (!cell) {
         cell = [[SwipeViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SwipeCell"];
-        cell.textLabel.text = @"This is text for the cell";
     }
+    
+    
+    // This log statement wil print a tree structure of the view hierarchy of the cell.
+#ifdef DEBUG
+    NSLog(@"Cell recursive description:\n\n%@\n\n", [cell performSelector:@selector(recursiveDescription)]);
+#endif
     
     return cell;
 }
