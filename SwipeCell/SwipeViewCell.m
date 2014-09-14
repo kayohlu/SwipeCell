@@ -60,13 +60,27 @@
     CGPoint panPoint = [recognizer translationInView:self.swipeContentView];
     NSLog(@"Pan position relative to it's start point: %@", NSStringFromCGPoint(panPoint));
     
-    //
+    // Here we handle the three states we are looking for.
     switch (recognizer.state) {
-        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateBegan:{
             NSLog(@"Pan Gesture began.");
+            CGPoint translation = [recognizer translationInView:self.swipeContentView];
+            // Since we have added the recognizer to the swipContentView above, we can access the view from the recognizer
+            // via it's view property.
+            recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y);
+            // This line resets the translation of the recognizer every time the Began state is triggered.
+            [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
+        }
             break;
-        case UIGestureRecognizerStateChanged:
+        case UIGestureRecognizerStateChanged:{
             NSLog(@"Pan Gesture changed.");
+            CGPoint translation = [recognizer translationInView:self.swipeContentView];
+            // Since we have added the recognizer to the swipContentView above, we can access the view from the recognizer
+            // via it's view property.
+            recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y);
+            // This line resets the translation of the recognizer every time the Changed state is triggered.
+            [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
+        }
             break;
         case UIGestureRecognizerStateEnded:
             NSLog(@"Pan gesture ended.");
