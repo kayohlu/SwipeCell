@@ -70,6 +70,9 @@
             recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y);
             // This line resets the translation of the recognizer every time the Began state is triggered.
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
+            
+            // Check for trigger point.
+            [self calculateTrigger:translation];
         }
             break;
         case UIGestureRecognizerStateChanged:{
@@ -80,6 +83,9 @@
             recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y);
             // This line resets the translation of the recognizer every time the Changed state is triggered.
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
+
+            // Check for trigger point.
+            [self calculateTrigger:translation];
         }
             break;
         case UIGestureRecognizerStateEnded:
@@ -89,6 +95,11 @@
             NSLog(@"Pan gesture unknown behaviour");
             break;
     }
+}
+
+-(void)calculateTrigger:(CGPoint)translation
+{
+    NSLog(@"Calculating trigger point.");
 }
 
 @end
