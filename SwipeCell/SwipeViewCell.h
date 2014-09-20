@@ -11,5 +11,6 @@
 @interface SwipeViewCell : UITableViewCell
 
 @property (nonatomic, strong) UIView *swipeContentView;
+@property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 
 @end

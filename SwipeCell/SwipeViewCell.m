@@ -30,11 +30,11 @@
         // Initialize the pan gesture recognizer.
         // This initializes a UIPanGestureRecognizer where the target is this cell instance where
         // the panning action is handled with the panThisCell method
-        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panThisCell:)];
+        self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panThisCell:)];
         // Set the recognizer delegate to this cell's instance
-        panRecognizer.delegate = self;
+        self.panRecognizer.delegate = self;
         // Adding the recognizer to our swipeContentView
-        [self.swipeContentView addGestureRecognizer:panRecognizer];
+        [self.swipeContentView addGestureRecognizer:self.panRecognizer];
 
     }
     return self;
@@ -72,7 +72,7 @@
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
             
             // Check for trigger point.
-            [self calculateTrigger:translation];
+            [self calculateTrigger];
         }
             break;
         case UIGestureRecognizerStateChanged:{
@@ -83,9 +83,9 @@
             recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x, recognizer.view.center.y);
             // This line resets the translation of the recognizer every time the Changed state is triggered.
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
-
+            
             // Check for trigger point.
-            [self calculateTrigger:translation];
+            [self calculateTrigger];
         }
             break;
         case UIGestureRecognizerStateEnded:
@@ -97,9 +97,21 @@
     }
 }
 
--(void)calculateTrigger:(CGPoint)translation
+-(void)calculateTrigger
 {
+    
     NSLog(@"Calculating trigger point.");
+    // Formula for caluclating the percentages is: current x coordinate of the view's origin divided by the width.
+    CGFloat currentSwipPercentage = (((self.panRecognizer.view.frame.origin.x / (self.panRecognizer.view.frame.size.width)) * 100));
+    NSLog(@"Current swipe percentage: %f", currentSwipPercentage);
+    
+    // Logic to decide what the trigger points are.
+    // If the swip is not greater than or equal to the a 25% this will allow the user to cancel what they want to do.
+    if (currentSwipPercentage >= 25.0 && currentSwipPercentage <= 49.0) {
+        NSLog(@"Cancel trigger point.");
+    } else if (currentSwipPercentage >= 50.0 && currentSwipPercentage <= 99.0) {
+        NSLog(@"Apply swipe action trigger point.");
+    }
 }
 
 @end
