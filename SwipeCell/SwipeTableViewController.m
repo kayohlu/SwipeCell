@@ -66,6 +66,8 @@
         cell = [[SwipeViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SwipeCell"];
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     
     // This log statement wil print a tree structure of the view hierarchy of the cell.
 #ifdef DEBUG

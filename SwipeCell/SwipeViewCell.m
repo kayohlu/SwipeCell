@@ -71,9 +71,7 @@
             // This line resets the translation of the recognizer every time the Began state is triggered.
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
             
-            // Check for trigger point.
-            [self calculateTrigger];
-        }
+                   }
             break;
         case UIGestureRecognizerStateChanged:{
             NSLog(@"Pan Gesture changed.");
@@ -84,12 +82,14 @@
             // This line resets the translation of the recognizer every time the Changed state is triggered.
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
             
-            // Check for trigger point.
-            [self calculateTrigger];
+
         }
             break;
         case UIGestureRecognizerStateEnded:
             NSLog(@"Pan gesture ended.");
+            // Check for trigger point.
+            [self calculateTrigger];
+
             break;
         default:
             NSLog(@"Pan gesture unknown behaviour");
@@ -99,18 +99,71 @@
 
 -(void)calculateTrigger
 {
-    
     NSLog(@"Calculating trigger point.");
     // Formula for caluclating the percentages is: current x coordinate of the view's origin divided by the width.
     CGFloat currentSwipPercentage = (((self.panRecognizer.view.frame.origin.x / (self.panRecognizer.view.frame.size.width)) * 100));
     NSLog(@"Current swipe percentage: %f", currentSwipPercentage);
     
     // Logic to decide what the trigger points are.
-    // If the swip is not greater than or equal to the a 25% this will allow the user to cancel what they want to do.
-    if (currentSwipPercentage >= 25.0 && currentSwipPercentage <= 49.0) {
+    // If the swipe is not greater than or equal to the a 40% this will allow the user to cancel what they want to do.
+    if (currentSwipPercentage <= 40.0) {
         NSLog(@"Cancel trigger point.");
-    } else if (currentSwipPercentage >= 50.0 && currentSwipPercentage <= 99.0) {
+        
+        /*
+         *  The below animation logic chains the animations we want to do when the user 'cancels' their swipe.
+         *  The first animations slides the view aback to its original position.
+         *  The second animation(inside the first animation's completion block) gives the return animation a little bounce by sliding it in the opposite direction 1 point.
+            The third (inside the seconf animation's completion block) animation does the same thing as the first and animates the view back to its original position.
+         */
+        [UIView animateWithDuration:0.2 animations:^{
+            NSLog(@"Returning animation");
+
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+            
+            // Use the frame of the super view because it's frame contains the original position we want
+            // to set the final position of the swipeContentView
+            self.panRecognizer.view.frame = self.panRecognizer.view.superview.frame;
+            
+        } completion: ^(BOOL finished){
+            [UIView animateWithDuration:0.2 animations:^{
+                NSLog(@"Returning animation");
+
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                
+                self.panRecognizer.view.frame = CGRectMake(self.panRecognizer.view.superview.frame.origin.x + 1,
+                                                           self.panRecognizer.view.superview.frame.origin.y,
+                                                           self.panRecognizer.view.frame.size.width,
+                                                           self.panRecognizer.view.frame.size.height);
+
+            } completion: ^(BOOL finished){
+                NSLog(@"Returning animation");
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.2];
+                [UIView setAnimationDelay:0];
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                
+                // Use the frame of the super view because it's frame contains the original position we want
+                // to set the final position of the swipeContentView
+                self.panRecognizer.view.frame = self.panRecognizer.view.superview.frame;
+                
+            }];
+        }];
+
+        
+        
+    } else {
         NSLog(@"Apply swipe action trigger point.");
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        [UIView setAnimationDelay:0];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        self.panRecognizer.view.frame = CGRectMake(self.panRecognizer.view.superview.frame.size.width,
+                                                   self.panRecognizer.view.superview.frame.origin.y,
+                                                   self.panRecognizer.view.frame.size.width,
+                                                   self.panRecognizer.view.frame.size.height);
+        [UIView commitAnimations];
     }
 }
 
