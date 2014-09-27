@@ -125,17 +125,23 @@
             self.panRecognizer.view.frame = self.panRecognizer.view.superview.frame;
             
         } completion: ^(BOOL finished){
+            // Completion block of the first animation
+            
+            
             [UIView animateWithDuration:0.2 animations:^{
                 NSLog(@"Returning animation");
 
                 [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
                 
+                // This will be the final destination of the bounce animation. It's the same as its original postioin plus one point on hte x-axis.
                 self.panRecognizer.view.frame = CGRectMake(self.panRecognizer.view.superview.frame.origin.x + 1,
                                                            self.panRecognizer.view.superview.frame.origin.y,
                                                            self.panRecognizer.view.frame.size.width,
                                                            self.panRecognizer.view.frame.size.height);
 
             } completion: ^(BOOL finished){
+                // Completion block of the second animation.
+                
                 NSLog(@"Returning animation");
                 [UIView beginAnimations:nil context:nil];
                 [UIView setAnimationDuration:0.2];
