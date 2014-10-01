@@ -160,6 +160,20 @@
     } else {
         NSLog(@"Apply swipe action trigger point.");
         
+        
+        // Create the number view
+        UIView *numberView = [[UIView alloc] initWithFrame:CGRectMake(self.panRecognizer.view.superview.frame.origin.x,
+                                                                      self.panRecognizer.view.superview.frame.origin.y,
+                                                                      self.panRecognizer.view.frame.size.width / 3,
+                                                                      self.panRecognizer.view.frame.size.height)];
+        
+        [numberView setBackgroundColor:[UIColor greenColor]];
+        [self.swipeContentView.superview addSubview:numberView];
+        
+#ifdef DEBUG
+        NSLog(@"Cell recursive description:\n\n%@\n\n", [self.superview.superview performSelector:@selector(recursiveDescription)]);
+#endif
+        
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
         [UIView setAnimationDelay:0];
