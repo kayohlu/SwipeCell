@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB1B183419C451BF00AB0A84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1B183319C451BF00AB0A84 /* main.m */; };
+		CB1B183719C451BF00AB0A84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1B183619C451BF00AB0A84 /* AppDelegate.m */; };
+		CB1B183919C451BF00AB0A84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB1B183819C451BF00AB0A84 /* Images.xcassets */; };
+		CB1B184519C451BF00AB0A84 /* SwipeCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1B184419C451BF00AB0A84 /* SwipeCellTests.m */; };
+		CB1B185619C453B200AB0A84 /* SwipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1B185519C453B200AB0A84 /* SwipeTableViewController.m */; };
+		CB1B185919C45A2B00AB0A84 /* SwipeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1B185819C45A2B00AB0A84 /* SwipeViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB1B183F19C451BF00AB0A84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB1B182619C451BF00AB0A84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB1B182D19C451BF00AB0A84;
+			remoteInfo = SwipeCell;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB1B182E19C451BF00AB0A84 /* SwipeCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB1B183219C451BF00AB0A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB1B183319C451BF00AB0A84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CB1B183519C451BF00AB0A84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CB1B183619C451BF00AB0A84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CB1B183819C451BF00AB0A84 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CB1B183E19C451BF00AB0A84 /* SwipeCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB1B184319C451BF00AB0A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB1B184419C451BF00AB0A84 /* SwipeCellTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeCellTests.m; sourceTree = "<group>"; };
+		CB1B185419C453B200AB0A84 /* SwipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeTableViewController.h; sourceTree = "<group>"; };
+		CB1B185519C453B200AB0A84 /* SwipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeTableViewController.m; sourceTree = "<group>"; };
+		CB1B185719C45A2B00AB0A84 /* SwipeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeViewCell.h; sourceTree = "<group>"; };
+		CB1B185819C45A2B00AB0A84 /* SwipeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB1B182B19C451BF00AB0A84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB1B183B19C451BF00AB0A84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB1B182519C451BE00AB0A84 = {
+			isa = PBXGroup;
+			children = (
+				CB1B183019C451BF00AB0A84 /* SwipeCell */,
+				CB1B184119C451BF00AB0A84 /* SwipeCellTests */,
+				CB1B182F19C451BF00AB0A84 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB1B182F19C451BF00AB0A84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB1B182E19C451BF00AB0A84 /* SwipeCell.app */,
+				CB1B183E19C451BF00AB0A84 /* SwipeCellTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB1B183019C451BF00AB0A84 /* SwipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB1B183519C451BF00AB0A84 /* AppDelegate.h */,
+				CB1B183619C451BF00AB0A84 /* AppDelegate.m */,
+				CB1B183819C451BF00AB0A84 /* Images.xcassets */,
+				CB1B183119C451BF00AB0A84 /* Supporting Files */,
+				CB1B185419C453B200AB0A84 /* SwipeTableViewController.h */,
+				CB1B185519C453B200AB0A84 /* SwipeTableViewController.m */,
+				CB1B185719C45A2B00AB0A84 /* SwipeViewCell.h */,
+				CB1B185819C45A2B00AB0A84 /* SwipeViewCell.m */,
+			);
+			path = SwipeCell;
+			sourceTree = "<group>";
+		};
+		CB1B183119C451BF00AB0A84 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB1B183219C451BF00AB0A84 /* Info.plist */,
+				CB1B183319C451BF00AB0A84 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB1B184119C451BF00AB0A84 /* SwipeCellTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB1B184419C451BF00AB0A84 /* SwipeCellTests.m */,
+				CB1B184219C451BF00AB0A84 /* Supporting Files */,
+			);
+			path = SwipeCellTests;
+			sourceTree = "<group>";
+		};
+		CB1B184219C451BF00AB0A84 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB1B184319C451BF00AB0A84 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB1B182D19C451BF00AB0A84 /* SwipeCell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB1B184819C451BF00AB0A84 /* Build configuration list for PBXNativeTarget "SwipeCell" */;
+			buildPhases = (
+				CB1B182A19C451BF00AB0A84 /* Sources */,
+				CB1B182B19C451BF00AB0A84 /* Frameworks */,
+				CB1B182C19C451BF00AB0A84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwipeCell;
+			productName = SwipeCell;
+			productReference = CB1B182E19C451BF00AB0A84 /* SwipeCell.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB1B183D19C451BF00AB0A84 /* SwipeCellTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB1B184B19C451BF00AB0A84 /* Build configuration list for PBXNativeTarget "SwipeCellTests" */;
+			buildPhases = (
+				CB1B183A19C451BF00AB0A84 /* Sources */,
+				CB1B183B19C451BF00AB0A84 /* Frameworks */,
+				CB1B183C19C451BF00AB0A84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB1B184019C451BF00AB0A84 /* PBXTargetDependency */,
+			);
+			name = SwipeCellTests;
+			productName = SwipeCellTests;
+			productReference = CB1B183E19C451BF00AB0A84 /* SwipeCellTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB1B182619C451BF00AB0A84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Karl Grogan";
+				TargetAttributes = {
+					CB1B182D19C451BF00AB0A84 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					CB1B183D19C451BF00AB0A84 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = CB1B182D19C451BF00AB0A84;
+					};
+				};
+			};
+			buildConfigurationList = CB1B182919C451BF00AB0A84 /* Build configuration list for PBXProject "SwipeCell" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CB1B182519C451BE00AB0A84;
+			productRefGroup = CB1B182F19C451BF00AB0A84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB1B182D19C451BF00AB0A84 /* SwipeCell */,
+				CB1B183D19C451BF00AB0A84 /* SwipeCellTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB1B182C19C451BF00AB0A84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB1B183919C451BF00AB0A84 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB1B183C19C451BF00AB0A84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB1B182A19C451BF00AB0A84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB1B185619C453B200AB0A84 /* SwipeTableViewController.m in Sources */,
+				CB1B185919C45A2B00AB0A84 /* SwipeViewCell.m in Sources */,
+				CB1B183719C451BF00AB0A84 /* AppDelegate.m in Sources */,
+				CB1B183419C451BF00AB0A84 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB1B183A19C451BF00AB0A84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB1B184519C451BF00AB0A84 /* SwipeCellTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB1B184019C451BF00AB0A84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB1B182D19C451BF00AB0A84 /* SwipeCell */;
+			targetProxy = CB1B183F19C451BF00AB0A84 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CB1B184619C451BF00AB0A84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB1B184719C451BF00AB0A84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB1B184919C451BF00AB0A84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SwipeCell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CB1B184A19C451BF00AB0A84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SwipeCell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CB1B184C19C451BF00AB0A84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwipeCell.app/SwipeCell";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwipeCellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		CB1B184D19C451BF00AB0A84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwipeCell.app/SwipeCell";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwipeCellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB1B182919C451BF00AB0A84 /* Build configuration list for PBXProject "SwipeCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB1B184619C451BF00AB0A84 /* Debug */,
+				CB1B184719C451BF00AB0A84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB1B184819C451BF00AB0A84 /* Build configuration list for PBXNativeTarget "SwipeCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB1B184919C451BF00AB0A84 /* Debug */,
+				CB1B184A19C451BF00AB0A84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CB1B184B19C451BF00AB0A84 /* Build configuration list for PBXNativeTarget "SwipeCellTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB1B184C19C451BF00AB0A84 /* Debug */,
+				CB1B184D19C451BF00AB0A84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB1B182619C451BF00AB0A84 /* Project object */;
+}
