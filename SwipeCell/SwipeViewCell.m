@@ -82,6 +82,7 @@
             // This line resets the translation of the recognizer every time the Changed state is triggered.
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
             
+            [self numberViewTrigger];
 
         }
             break;
@@ -173,7 +174,7 @@
 #ifdef DEBUG
         NSLog(@"Cell recursive description:\n\n%@\n\n", [self.superview.superview performSelector:@selector(recursiveDescription)]);
 #endif
-        
+    
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
         [UIView setAnimationDelay:0];
@@ -184,6 +185,37 @@
                                                    self.panRecognizer.view.frame.size.width,
                                                    self.panRecognizer.view.frame.size.height);
         [UIView commitAnimations];
+    }
+}
+
+-(void)numberViewTrigger
+{
+    NSLog(@"Calculating display view trigger point.");
+    // Formula for caluclating the percentages is: current x coordinate of the view's origin divided by the width.
+    CGFloat currentSwipePercentage = (((self.panRecognizer.view.frame.origin.x / (self.panRecognizer.view.frame.size.width)) * 100));
+    NSLog(@"Current swipe percentage: %f", currentSwipePercentage);
+    
+    // We only want to create the view if one doesn't already exist.
+    // Since this method is being called when the pan state has changed, it would create a view each time this event is fired.
+    if (!self.numberView) {
+        self.numberView = [[UIView alloc] initWithFrame:CGRectMake(self.panRecognizer.view.superview.frame.origin.x,
+                                                                   self.panRecognizer.view.superview.frame.origin.y,
+                                                                   self.panRecognizer.view.frame.size.width / 3,
+                                                                   self.panRecognizer.view.frame.size.height)];
+    }
+    
+
+    [self.numberView setBackgroundColor:[UIColor greenColor]];
+    // Logic to decide what the trigger points are.
+    // If the swipe is not greater than or equal to the a 40% this will allow the user to cancel what they want to do.
+    if (currentSwipePercentage <= 40.0) {
+        NSLog(@"Remove number view trigger point.");
+        // Remove number view from superview.
+        [self.numberView removeFromSuperview];
+    } else {
+        NSLog(@"Adding numnber view as a subview to the swipeContentView");
+        // Create the number view
+        [self.swipeContentView.superview addSubview:self.numberView];
     }
 }
 

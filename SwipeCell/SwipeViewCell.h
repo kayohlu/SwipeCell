@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) UIView *swipeContentView;
 @property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
+@property (nonatomic, strong) UIView *numberView;
 
 @end
