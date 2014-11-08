@@ -12,6 +12,7 @@
 
 @property UIView *swipeContentView;
 @property UIPanGestureRecognizer *panRecognizer;
-@property UIView *numberView;
+@property UILabel *numberView;
+@property int amount;
 
 @end

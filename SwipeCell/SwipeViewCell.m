@@ -35,7 +35,10 @@
         self.panRecognizer.delegate = self;
         // Adding the recognizer to our swipeContentView
         [self.swipeContentView addGestureRecognizer:self.panRecognizer];
-
+        
+        //Init amount
+        self.amount = 0;
+        
     }
     return self;
 }
@@ -48,7 +51,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -74,7 +77,7 @@
             // This line resets the translation of the recognizer every time the Began state is triggered.
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
             
-                   }
+        }
             break;
         case UIGestureRecognizerStateChanged:{
             NSLog(@"Pan Gesture changed.");
@@ -86,7 +89,11 @@
             [recognizer setTranslation:CGPointMake(0, 0) inView:self.swipeContentView];
             
             [self numberViewTrigger];
-
+            
+            if (self.numberView) {
+                self.numberView.text = [[NSNumber numberWithInt:self.amount += 1] stringValue];
+            }
+            
         }
             break;
         case UIGestureRecognizerStateEnded:
@@ -96,7 +103,7 @@
 #endif
             // Check for trigger point.
             [self calculateTrigger];
-
+            
             break;
         default:
             NSLog(@"Pan gesture unknown behaviour");
@@ -120,11 +127,11 @@
          *  The below animation logic chains the animations we want to do when the user 'cancels' their swipe.
          *  The first animations slides the view aback to its original position.
          *  The second animation(inside the first animation's completion block) gives the return animation a little bounce by sliding it in the opposite direction 1 point.
-            The third (inside the seconf animation's completion block) animation does the same thing as the first and animates the view back to its original position.
+         The third (inside the seconf animation's completion block) animation does the same thing as the first and animates the view back to its original position.
          */
         [UIView animateWithDuration:0.2 animations:^{
             NSLog(@"Returning animation");
-
+            
             [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
             
             // Use the frame of the super view because its frame contains the original position we want
@@ -137,7 +144,7 @@
             
             [UIView animateWithDuration:0.2 animations:^{
                 NSLog(@"Returning animation");
-
+                
                 [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
                 
                 // This will be the final destination of the bounce animation. It's the same as its original postioin plus one point on hte x-axis.
@@ -145,7 +152,7 @@
                                                            self.panRecognizer.view.superview.frame.origin.y,
                                                            self.panRecognizer.view.frame.size.width,
                                                            self.panRecognizer.view.frame.size.height);
-
+                
             } completion: ^(BOOL finished){
                 // Completion block of the second animation.
                 
@@ -184,23 +191,29 @@
     // Formula for caluclating the percentages is: current x coordinate of the view's origin divided by the width.
     CGFloat currentSwipePercentage = (((self.panRecognizer.view.frame.origin.x / (self.panRecognizer.view.frame.size.width)) * 100));
     NSLog(@"Current swipe percentage: %f", currentSwipePercentage);
- 
+    
     // Logic to decide what the trigger points are.
     // If the swipe is not greater than or equal to the a 40% this will allow the user to cancel what they want to do.
     if (currentSwipePercentage <= 40.0) {
         NSLog(@"Remove number view trigger point.");
         // Remove number view from superview.
         [self.numberView removeFromSuperview];
+        
+        // Reset the number view.
+        self.numberView.text = [[NSNumber numberWithInt:0] stringValue];
     } else {
         
         // We only want to create the view if one doesn't already exist.
         // Since this method is being called when the pan state has changed, it would create a view each time this event is fired.
         if (!self.numberView) {
-            self.numberView = [[UIView alloc] initWithFrame:CGRectMake(self.panRecognizer.view.superview.frame.origin.x,
-                                                                       self.panRecognizer.view.superview.frame.origin.y,
-                                                                       self.panRecognizer.view.frame.size.width / 3,
-                                                                       self.panRecognizer.view.frame.size.height)];
+            self.numberView = [[UILabel alloc] initWithFrame:CGRectMake(self.panRecognizer.view.superview.frame.origin.x,
+                                                                        self.panRecognizer.view.superview.frame.origin.y,
+                                                                        self.panRecognizer.view.frame.size.width / 3,
+                                                                        self.panRecognizer.view.frame.size.height)];
             [self.numberView setBackgroundColor:[UIColor greenColor]];
+            
+            // Initialize the counter with self.amount.
+            self.numberView.text = [[NSNumber numberWithInt:self.amount] stringValue];
             
             NSLog(@"Adding numnber view as a subview to the swipeContentView");
             // Create the number view
@@ -211,8 +224,8 @@
             // back again.
             [self.swipeContentView.superview addSubview:self.numberView];
         }
-
-
+        
+        
     }
 }
 
