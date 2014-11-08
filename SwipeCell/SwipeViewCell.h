@@ -10,8 +10,8 @@
 
 @interface SwipeViewCell : UITableViewCell
 
-@property (nonatomic, strong) UIView *swipeContentView;
-@property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
-@property (nonatomic, strong) UIView *numberView;
+@property UIView *swipeContentView;
+@property UIPanGestureRecognizer *panRecognizer;
+@property UIView *numberView;
 
 @end
