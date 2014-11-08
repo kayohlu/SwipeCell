@@ -127,7 +127,7 @@
 
             [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
             
-            // Use the frame of the super view because it's frame contains the original position we want
+            // Use the frame of the super view because its frame contains the original position we want
             // to set the final position of the swipeContentView
             self.panRecognizer.view.frame = self.panRecognizer.view.superview.frame;
             
@@ -204,6 +204,11 @@
             
             NSLog(@"Adding numnber view as a subview to the swipeContentView");
             // Create the number view
+            [self.swipeContentView.superview addSubview:self.numberView];
+        } else {
+            // If an instance of the numberView already exists we just want to add as a sub view.
+            // This covers the case where the user swiped passed the trigger point then went back but decide to go
+            // back again.
             [self.swipeContentView.superview addSubview:self.numberView];
         }
 
